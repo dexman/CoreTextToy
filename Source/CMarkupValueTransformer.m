@@ -139,7 +139,7 @@
         };
 
     theParser.closeTagHandler = ^(CSimpleHTMLTag *inTag, NSArray *tagStack) {
-        if ([inTag.name isEqualToString:@"a"] == YES == YES)
+        if ([inTag.name isEqualToString:@"a"] == YES)
             {
             theCurrentLink = NULL;
             }
