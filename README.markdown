@@ -32,9 +32,11 @@ The views and conclusions contained in the software and documentation are those 
 authors and should not be interpreted as representing official policies, either expressed
 or implied, of Jonathan Wight.
 
-## Automatic Reference Counting (ARC)
+## Requirements
 
-The source code in this repository uses Automatic Reference Counting. Older, non-ARC source code may exist in a "feature/nonARC" maintenance branch.
+The master and develop branches require iOS 6.0 and higher with ARC.
+
+IMPORTANT: iOS 5.x is supported in the “feature/iOS5” branch.
 
 ## Design
 
