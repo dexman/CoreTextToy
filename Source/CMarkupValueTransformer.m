@@ -103,6 +103,11 @@
                 theCurrentLink = [NSURL URLWithString:theURLString];
                 }
             }
+		else if ([inTag.name isEqualToString:@"p"] == YES)
+			{
+			NSAttributedString *as = [[NSAttributedString alloc] initWithString:@"\n"];
+			[theAttributedString appendAttributedString:as];
+			}
         else if ([inTag.name isEqualToString:@"img"] == YES)
             {
             NSString *theImageSource = (inTag.attributes)[@"src"];
@@ -188,12 +193,14 @@
         return(@{kMarkupBoldAttributeName: @YES});
         };
     [self addHandler:theTagHandler forTag:@"b"];
+    [self addHandler:theTagHandler forTag:@"strong"];
 
     // ### i
     theTagHandler = ^(CSimpleHTMLTag *inTag) {
         return(@{kMarkupItalicAttributeName: @YES});
         };
     [self addHandler:theTagHandler forTag:@"i"];
+    [self addHandler:theTagHandler forTag:@"em"];
 
     // ### a
     theTagHandler = ^(CSimpleHTMLTag *inTag) {
