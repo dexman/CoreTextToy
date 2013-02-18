@@ -8,7 +8,6 @@
 
 #import "NSAttributedString_Extensions.h"
 
-#import "CMarkupValueTransformer.h"
 #import "UIFont_CoreTextExtensions.h"
 
 NSString *const kMarkupLinkAttributeName = @"com.touchcode.link";

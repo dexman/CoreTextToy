@@ -8,9 +8,6 @@
 
 #import "CCoreTextRenderer.h"
 
-#import <CoreText/CoreText.h>
-#import <QuartzCore/QuartzCore.h>
-
 #import "CCoreTextAttachment.h"
 #import "NSAttributedString_Extensions.h"
 

@@ -33,11 +33,8 @@
 
 #import <CoreText/CoreText.h>
 
-#import "UIFont_CoreTextExtensions.h"
-#import "CMarkupValueTransformer.h"
 #import "CSimpleHTMLParser.h"
 #import "CCoreTextAttachment.h"
-#import "CCoreTextRenderer.h"
 #import "NSAttributedString_Extensions.h"
 #import "UIColor+Hex.h"
 
