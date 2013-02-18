@@ -33,12 +33,9 @@
 
 #import <CoreText/CoreText.h>
 #import <QuartzCore/QuartzCore.h>
-#import <ImageIO/ImageIO.h>
 
-#import "CMarkupValueTransformer.h"
 #import "CCoreTextRenderer.h"
 #import "UIFont_CoreTextExtensions.h"
-#import "UIColor+Hex.h"
 #import "NSAttributedString_Extensions.h"
 #import "CCoreTextAttachment.h"
 
