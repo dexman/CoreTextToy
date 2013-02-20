@@ -33,11 +33,8 @@
 
 #import <CoreText/CoreText.h>
 
-#import "UIFont_CoreTextExtensions.h"
-#import "CMarkupValueTransformer.h"
 #import "CSimpleHTMLParser.h"
 #import "CCoreTextAttachment.h"
-#import "CCoreTextRenderer.h"
 #import "NSAttributedString_Extensions.h"
 #import "UIColor+Hex.h"
 
@@ -103,6 +100,11 @@
                 theCurrentLink = [NSURL URLWithString:theURLString];
                 }
             }
+		else if ([inTag.name isEqualToString:@"p"] == YES)
+			{
+			NSAttributedString *as = [[NSAttributedString alloc] initWithString:@"\n"];
+			[theAttributedString appendAttributedString:as];
+			}
         else if ([inTag.name isEqualToString:@"img"] == YES)
             {
             NSString *theImageSource = (inTag.attributes)[@"src"];
@@ -139,7 +141,7 @@
         };
 
     theParser.closeTagHandler = ^(CSimpleHTMLTag *inTag, NSArray *tagStack) {
-        if ([inTag.name isEqualToString:@"a"] == YES == YES)
+        if ([inTag.name isEqualToString:@"a"] == YES)
             {
             theCurrentLink = NULL;
             }
@@ -188,12 +190,14 @@
         return(@{kMarkupBoldAttributeName: @YES});
         };
     [self addHandler:theTagHandler forTag:@"b"];
+    [self addHandler:theTagHandler forTag:@"strong"];
 
     // ### i
     theTagHandler = ^(CSimpleHTMLTag *inTag) {
         return(@{kMarkupItalicAttributeName: @YES});
         };
     [self addHandler:theTagHandler forTag:@"i"];
+    [self addHandler:theTagHandler forTag:@"em"];
 
     // ### a
     theTagHandler = ^(CSimpleHTMLTag *inTag) {
