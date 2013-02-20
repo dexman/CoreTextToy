@@ -518,7 +518,8 @@ static CTTextAlignment CTTextAlignmentForNSTextAlignment(NSTextAlignment inAlign
     CGFloat theLineSpacing;
     CGFloat theParagraphSpacing;
     CGFloat theParagraphSpacingBefore;
-    CTWritingDirection theBaseWritingDirection; 
+    CTWritingDirection theBaseWritingDirection;
+    CGFloat lineSpacingAdjustment;
 
     BOOL createdCurrentStyle = NO;
     CTParagraphStyleRef currentParagraphStyle = (__bridge CTParagraphStyleRef)inAttributes[(__bridge NSString *)kCTParagraphStyleAttributeName];
@@ -542,7 +543,8 @@ static CTTextAlignment CTTextAlignmentForNSTextAlignment(NSTextAlignment inAlign
     CTParagraphStyleGetValueForSpecifier(currentParagraphStyle, kCTParagraphStyleSpecifierParagraphSpacing, sizeof(theParagraphSpacing), &theParagraphSpacing);
     CTParagraphStyleGetValueForSpecifier(currentParagraphStyle, kCTParagraphStyleSpecifierParagraphSpacingBefore, sizeof(theParagraphSpacingBefore), &theParagraphSpacingBefore);
     CTParagraphStyleGetValueForSpecifier(currentParagraphStyle, kCTParagraphStyleSpecifierBaseWritingDirection, sizeof(theBaseWritingDirection), &theBaseWritingDirection);
-    
+    CTParagraphStyleGetValueForSpecifier(currentParagraphStyle, kCTParagraphStyleSpecifierLineSpacingAdjustment, sizeof(lineSpacingAdjustment), &lineSpacingAdjustment);
+
     CFRetain(theTabStops);
         
     if (createdCurrentStyle)
@@ -565,6 +567,7 @@ static CTTextAlignment CTTextAlignmentForNSTextAlignment(NSTextAlignment inAlign
         { .spec = kCTParagraphStyleSpecifierParagraphSpacing, .valueSize = sizeof(theParagraphSpacing), .value = &theParagraphSpacing, },
         { .spec = kCTParagraphStyleSpecifierParagraphSpacingBefore, .valueSize = sizeof(theParagraphSpacingBefore), .value = &theParagraphSpacingBefore, },
         { .spec = kCTParagraphStyleSpecifierBaseWritingDirection, .valueSize = sizeof(theBaseWritingDirection), .value = &theBaseWritingDirection, },
+        { .spec = kCTParagraphStyleSpecifierLineSpacingAdjustment, .valueSize = sizeof(lineSpacingAdjustment), .value = &lineSpacingAdjustment, },
         };
 
     CTParagraphStyleRef newStyle = CTParagraphStyleCreate( newSettings, sizeof(newSettings)/sizeof(CTParagraphStyleSetting) );
