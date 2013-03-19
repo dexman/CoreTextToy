@@ -43,9 +43,6 @@
 #define CFRangeToNSRange_(r) ({ const CFRange r_ = (r); (NSRange){ (NSUInteger)r_.location, (NSUInteger)r_.length }; })
 #define NSRangeToCFRange_(r) ({ const NSRange r_ = (r); (CFRange){ (CFIndex)r_.location, (CFIndex)r_.length }; })
 
-static CTTextAlignment CTTextAlignmentForNSTextAlignment(NSTextAlignment inAlignment);
-
-
 @interface CCoreTextLabel ()
 @property (readwrite, nonatomic, strong) CCoreTextRenderer *renderer;
 @property (readwrite, nonatomic, strong) NSArray *attachmentViews;
@@ -340,7 +337,7 @@ static CTTextAlignment CTTextAlignmentForNSTextAlignment(NSTextAlignment inAlign
             {
             NSRange theLastLineRange = CFRangeToNSRange_([_renderer rangeOfLastLine]);
             
-            CTParagraphStyleRef theParagraphStyle = [[self class] createParagraphStyleForAttributes:NULL alignment:CTTextAlignmentForNSTextAlignment(self.textAlignment) lineBreakMode:kCTLineBreakByTruncatingTail];
+            CTParagraphStyleRef theParagraphStyle = [[self class] createParagraphStyleForAttributes:NULL alignment:NSTextAlignmentToCTTextAlignment(self.textAlignment) lineBreakMode:kCTLineBreakByTruncatingTail];
 
             [theNormalizedText addAttribute:(__bridge NSString *)kCTParagraphStyleAttributeName value:(__bridge_transfer id)theParagraphStyle range:theLastLineRange];
             
@@ -639,22 +636,3 @@ static CTTextAlignment CTTextAlignmentForNSTextAlignment(NSTextAlignment inAlign
     }
 
 @end
-
-static CTTextAlignment CTTextAlignmentForNSTextAlignment(NSTextAlignment inAlignment)
-    {
-    CTTextAlignment theTextAlignment;
-    switch (inAlignment)
-        {
-        case NSTextAlignmentCenter:
-            theTextAlignment = kCTCenterTextAlignment;
-            break;
-        case NSTextAlignmentRight:
-            theTextAlignment = kCTRightTextAlignment;
-            break;
-        case NSTextAlignmentLeft:
-        default:
-            theTextAlignment = kCTLeftTextAlignment;
-            break;
-        }
-    return(theTextAlignment);
-    }
