@@ -335,14 +335,14 @@ static CTTextAlignment CTTextAlignmentForNSTextAlignment(NSTextAlignment inAlign
         
         // Some way to do this check before allocation? I know of no way to check with just a Class
         NSAssert2([_renderer isKindOfClass:[CCoreTextRenderer class]], @"-[%@ rendererClass] must return a sublass of CCoreTextRenderer, got %@", NSStringFromClass([self class]), NSStringFromClass(theRendererClass));
-            
+
         if (self.lineBreakMode != self.lastLineBreakMode && _renderer.visibleLines.count > 1)
             {
             NSRange theLastLineRange = CFRangeToNSRange_([_renderer rangeOfLastLine]);
             
             CTParagraphStyleRef theParagraphStyle = [[self class] createParagraphStyleForAttributes:NULL alignment:CTTextAlignmentForNSTextAlignment(self.textAlignment) lineBreakMode:kCTLineBreakByTruncatingTail];
 
-            [theNormalizedText addAttribute:(__bridge NSString *)kCTParagraphStyleAttributeName value:(__bridge id)theParagraphStyle range:theLastLineRange];
+            [theNormalizedText addAttribute:(__bridge NSString *)kCTParagraphStyleAttributeName value:(__bridge_transfer id)theParagraphStyle range:theLastLineRange];
             
             _renderer.text = theNormalizedText;
             }
