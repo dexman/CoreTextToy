@@ -90,7 +90,10 @@
 
     NSURL *theURL = [[NSBundle mainBundle] URLForResource:@"Lorem" withExtension:@"txt"];
     NSString *theString = [NSString stringWithContentsOfURL:theURL encoding:NSUTF8StringEncoding error:NULL];
-    self.label6.attributedText = [[NSAttributedString alloc] initWithString:theString];
+    NSMutableParagraphStyle *theParagraphStyle = [[NSMutableParagraphStyle alloc] init];
+    theParagraphStyle.lineSpacing = 4;
+    NSMutableAttributedString *theAttributedString = [[NSMutableAttributedString alloc] initWithString:theString attributes:@{ NSParagraphStyleAttributeName: theParagraphStyle }];
+    self.label6.attributedText = theAttributedString;
     self.label6.insets = (UIEdgeInsets){ .left = 20, .top = 20, .right = 20, .bottom = 20 };
     self.label6.lineBreakMode = UILineBreakModeWordWrap;
     self.label6.backgroundColor = [UIColor grayColor];

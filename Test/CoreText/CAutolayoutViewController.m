@@ -19,8 +19,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-	self.label.text = @"Hello world";
+
+    NSString *theString = @"Hello world\nHello world";
+    NSMutableParagraphStyle *theParagraphStyle = [[NSMutableParagraphStyle alloc] init];
+    theParagraphStyle.alignment = NSTextAlignmentRight;
+    NSMutableAttributedString *theAttributedString = [[NSMutableAttributedString alloc] initWithString:theString attributes:@{ NSParagraphStyleAttributeName: theParagraphStyle }];
+	self.label.attributedText = theAttributedString;
 }
 
 

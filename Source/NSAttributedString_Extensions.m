@@ -46,8 +46,8 @@ NSString *const kMarkupOutlineAttributeName = @"com.touchcode.outline";
 + (NSDictionary *)normalizeAttributes:(NSDictionary *)inAttributes baseFont:(UIFont *)inBaseFont
     {
     NSMutableDictionary *theAttributes = [inAttributes mutableCopy];
-        
-    // NORMALIZE ATTRIBUTES
+
+    // kCTFontAttributeName
     UIFont *theBaseFont = inBaseFont;
     NSString *theFontName = theAttributes[kMarkupFontNameAttributeName];
     if (theFontName != NULL)
@@ -56,53 +56,76 @@ NSString *const kMarkupOutlineAttributeName = @"com.touchcode.outline";
         [theAttributes removeObjectForKey:kMarkupFontNameAttributeName];
         }
     
-    UIFont *theFont = theBaseFont;
-    
-    BOOL theBoldFlag = [theAttributes[kMarkupBoldAttributeName] boolValue];
-    if (theAttributes[kMarkupBoldAttributeName] != NULL)
+    UIFont *theFont = theAttributes[NSFontAttributeName];
+    if (theFont != NULL)
         {
-        [theAttributes removeObjectForKey:kMarkupBoldAttributeName];
+        [theAttributes removeObjectForKey:NSFontAttributeName];
         }
 
-    BOOL theItalicFlag = [theAttributes[kMarkupItalicAttributeName] boolValue];
-    if (theAttributes[kMarkupItalicAttributeName] != NULL)
+    if (theFont == NULL)
         {
-        [theAttributes removeObjectForKey:kMarkupItalicAttributeName];
-        }
-    
-    if (theBoldFlag == YES && theItalicFlag == YES)
-        {
-        theFont = theBaseFont.boldItalicFont;
-        }
-    else if (theBoldFlag == YES)
-        {
-        theFont = theBaseFont.boldFont;
-        }
-    else if (theItalicFlag == YES)
-        {
-        theFont = theBaseFont.italicFont;
-        }
+        theFont = theBaseFont;
 
-    if (theAttributes[kMarkupOutlineAttributeName] != NULL)
-        {
-        [theAttributes removeObjectForKey:kMarkupOutlineAttributeName];
-		theAttributes[(__bridge NSString *)kCTStrokeWidthAttributeName] = @(3.0);
-        }
+        BOOL theBoldFlag = [theAttributes[kMarkupBoldAttributeName] boolValue];
+        if (theAttributes[kMarkupBoldAttributeName] != NULL)
+            {
+            [theAttributes removeObjectForKey:kMarkupBoldAttributeName];
+            }
 
-    NSNumber *theSizeValue = theAttributes[kMarkupSizeAdjustmentAttributeName];
-    if (theSizeValue != NULL)
-        {
-        CGFloat theSize = [theSizeValue floatValue];
-        theFont = [theFont fontWithSize:theFont.pointSize + theSize];
+        BOOL theItalicFlag = [theAttributes[kMarkupItalicAttributeName] boolValue];
+        if (theAttributes[kMarkupItalicAttributeName] != NULL)
+            {
+            [theAttributes removeObjectForKey:kMarkupItalicAttributeName];
+            }
         
-        [theAttributes removeObjectForKey:kMarkupSizeAdjustmentAttributeName];
+        if (theBoldFlag == YES && theItalicFlag == YES)
+            {
+            theFont = theBaseFont.boldItalicFont;
+            }
+        else if (theBoldFlag == YES)
+            {
+            theFont = theBaseFont.boldFont;
+            }
+        else if (theItalicFlag == YES)
+            {
+            theFont = theBaseFont.italicFont;
+            }
+
+        if (theAttributes[kMarkupOutlineAttributeName] != NULL)
+            {
+            [theAttributes removeObjectForKey:kMarkupOutlineAttributeName];
+            theAttributes[(__bridge NSString *)kCTStrokeWidthAttributeName] = @(3.0);
+            }
+
+        NSNumber *theSizeValue = theAttributes[kMarkupSizeAdjustmentAttributeName];
+        if (theSizeValue != NULL)
+            {
+            CGFloat theSize = [theSizeValue floatValue];
+            theFont = [theFont fontWithSize:theFont.pointSize + theSize];
+            
+            [theAttributes removeObjectForKey:kMarkupSizeAdjustmentAttributeName];
+            }
         }
 
     if (theFont != NULL)
         {
         theAttributes[(__bridge NSString *)kCTFontAttributeName] = (__bridge id)theFont.CTFont;
         }
-        
+
+    // kCTFontAttributeName
+    NSParagraphStyle *theParagraphStyle = theAttributes[NSParagraphStyleAttributeName];
+    if (theParagraphStyle)
+        {
+        [theAttributes removeObjectForKey:NSParagraphStyleAttributeName];
+
+
+        CTParagraphStyleRef theCTParagraphStyle = CTParagraphStyleCreate(NULL, 0);
+
+        theAttributes[(__bridge id)kCTParagraphStyleAttributeName] = (__bridge_transfer id)theCTParagraphStyle;
+
+        }
+
+
     return(theAttributes);
     }
     
