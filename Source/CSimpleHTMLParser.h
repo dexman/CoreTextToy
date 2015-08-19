@@ -48,7 +48,7 @@ enum {
 
 @property (readwrite, nonatomic, strong) NSCharacterSet *whitespaceCharacterSet;
 
-- (BOOL)parseString:(NSString *)inString error:(NSError **)outError;
+- (BOOL)parseString:(NSString *)inString error:(NSError * __strong *)outError;
 
 @end
 

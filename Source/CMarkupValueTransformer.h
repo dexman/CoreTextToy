@@ -39,7 +39,7 @@ typedef NSDictionary *(^BTagHandler)(CSimpleHTMLTag *);
 
 @property (readwrite, nonatomic, strong) NSCharacterSet *whitespaceCharacterSet;
 
-- (id)transformedValue:(id)value error:(NSError **)outError;
+- (id)transformedValue:(id)value error:(NSError * __strong *)outError;
 
 - (void)resetStyles;
 - (void)addStandardStyles;
@@ -59,6 +59,6 @@ typedef NSDictionary *(^BTagHandler)(CSimpleHTMLTag *);
 
 @interface NSAttributedString (NSAttributedString_MarkupExtensions)
 
-+ (NSAttributedString *)attributedStringWithMarkup:(NSString *)inMarkup error:(NSError **)outError;
++ (NSAttributedString *)attributedStringWithMarkup:(NSString *)inMarkup error:(NSError * __strong *)outError;
 
 @end

@@ -76,7 +76,7 @@ NSString *const kSimpleHTMLParserErrorDomain = @"kSimpleHTMLParserErrorDomain";
     return(theString);
     }
 
-- (BOOL)parseString:(NSString *)inString error:(NSError **)outError
+- (BOOL)parseString:(NSString *)inString error:(NSError * __strong *)outError
     {
     @autoreleasepool
         {

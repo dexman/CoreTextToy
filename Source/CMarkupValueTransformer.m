@@ -76,7 +76,7 @@
     return([self transformedValue:value error:NULL]);
     }
 
-- (id)transformedValue:(id)value error:(NSError **)outError
+- (id)transformedValue:(id)value error:(NSError * __strong *)outError
     {
     NSString *theMarkup = value;
 
@@ -296,7 +296,7 @@
 
 @implementation NSAttributedString (NSAttributedString_MarkupExtensions)
 
-+ (NSAttributedString *)attributedStringWithMarkup:(NSString *)inMarkup error:(NSError **)outError
++ (NSAttributedString *)attributedStringWithMarkup:(NSString *)inMarkup error:(NSError * __strong *)outError
     {
     CMarkupValueTransformer *theTransformer = [[CMarkupValueTransformer alloc] init];
 
