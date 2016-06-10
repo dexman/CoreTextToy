@@ -43,12 +43,15 @@
 		45FF284613CD6920006D9574 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45FF284413CD6920006D9574 /* MainStoryboard.storyboard */; };
 		45FF284913CD6920006D9574 /* CFreeformCoreTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF284813CD6920006D9574 /* CFreeformCoreTextViewController.m */; };
 		45FF286D13CD695E006D9574 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45FF286C13CD695E006D9574 /* CoreText.framework */; };
+		724BC9B6BFCBBF980628044C /* Pods_CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C9EAD7CCBE9ED102EB0DE6 /* Pods_CoreText.framework */; };
 		83E4C2E2187629F20004D2D2 /* NSCharacterSet_HTMLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E4C2E1187629F20004D2D2 /* NSCharacterSet_HTMLExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35C9EAD7CCBE9ED102EB0DE6 /* Pods_CoreText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37850CFF1496640E004AAA31 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		37850D011496641A004AAA31 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		4320061FE69FCBD9C039DC91 /* Pods-CoreText.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreText.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreText/Pods-CoreText.debug.xcconfig"; sourceTree = "<group>"; };
 		45161E8C1635E14600E74EF1 /* CSimpleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSimpleViewController.h; sourceTree = "<group>"; };
 		45161E8D1635E14600E74EF1 /* CSimpleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSimpleViewController.m; sourceTree = "<group>"; };
 		4528EA5F145386F500814B3E /* NSAttributedString_DebugExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSAttributedString_DebugExtensions.h; sourceTree = "<group>"; };
@@ -109,6 +112,7 @@
 		45FF286C13CD695E006D9574 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		83E4C2E0187629F20004D2D2 /* NSCharacterSet_HTMLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCharacterSet_HTMLExtensions.h; sourceTree = "<group>"; };
 		83E4C2E1187629F20004D2D2 /* NSCharacterSet_HTMLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSCharacterSet_HTMLExtensions.m; sourceTree = "<group>"; };
+		86847AEE3A02E2F44D87258F /* Pods-CoreText.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreText.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreText/Pods-CoreText.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,7 @@
 				45FF283313CD6920006D9574 /* UIKit.framework in Frameworks */,
 				45FF283513CD6920006D9574 /* Foundation.framework in Frameworks */,
 				45FF283713CD6920006D9574 /* CoreGraphics.framework in Frameworks */,
+				724BC9B6BFCBBF980628044C /* Pods_CoreText.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,6 +191,7 @@
 				45FF283813CD6920006D9574 /* Test */,
 				45FF283113CD6920006D9574 /* Frameworks */,
 				45FF282F13CD6920006D9574 /* Products */,
+				532FEAEDA08EFD4C1446A64E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -207,6 +213,7 @@
 				45FF283413CD6920006D9574 /* Foundation.framework */,
 				45FF283613CD6920006D9574 /* CoreGraphics.framework */,
 				45FF285013CD6920006D9574 /* SenTestingKit.framework */,
+				35C9EAD7CCBE9ED102EB0DE6 /* Pods_CoreText.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -254,6 +261,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		532FEAEDA08EFD4C1446A64E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4320061FE69FCBD9C039DC91 /* Pods-CoreText.debug.xcconfig */,
+				86847AEE3A02E2F44D87258F /* Pods-CoreText.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -261,9 +277,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 45FF286313CD6920006D9574 /* Build configuration list for PBXNativeTarget "CoreText" */;
 			buildPhases = (
+				9BF14273BEBB2259E2A8133C /* [CP] Check Pods Manifest.lock */,
 				45FF282A13CD6920006D9574 /* Sources */,
 				45FF282B13CD6920006D9574 /* Frameworks */,
 				45FF282C13CD6920006D9574 /* Resources */,
+				FB51CA1B1C3EDAEAE69C9578 /* [CP] Embed Pods Frameworks */,
+				B37CF4A92EFFCEE2D0DB20E2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -280,7 +299,7 @@
 		45FF282513CD6920006D9574 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = toxicsoftware.com;
 			};
 			buildConfigurationList = 45FF282813CD6920006D9574 /* Build configuration list for PBXProject "CoreText" */;
@@ -318,6 +337,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9BF14273BEBB2259E2A8133C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B37CF4A92EFFCEE2D0DB20E2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreText/Pods-CoreText-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB51CA1B1C3EDAEAE69C9578 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreText/Pods-CoreText-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		45FF282A13CD6920006D9574 /* Sources */ = {
@@ -381,6 +448,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -393,7 +461,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -414,7 +483,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -424,6 +493,7 @@
 		};
 		45FF286413CD6920006D9574 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4320061FE69FCBD9C039DC91 /* Pods-CoreText.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
@@ -445,6 +515,7 @@
 				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
 				INFOPLIST_FILE = CoreText/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.toxicsoftware.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = app;
@@ -453,6 +524,7 @@
 		};
 		45FF286513CD6920006D9574 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86847AEE3A02E2F44D87258F /* Pods-CoreText.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
@@ -474,6 +546,7 @@
 				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
 				INFOPLIST_FILE = CoreText/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.toxicsoftware.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = app;

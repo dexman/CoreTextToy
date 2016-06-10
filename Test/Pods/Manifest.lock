@@ -1,0 +1,16 @@
+PODS:
+  - CoreTextToy (1.0.2)
+
+DEPENDENCIES:
+  - CoreTextToy (from `..`)
+
+EXTERNAL SOURCES:
+  CoreTextToy:
+    :path: ".."
+
+SPEC CHECKSUMS:
+  CoreTextToy: 42264348c25ceced0e001a3913203f74aa59066a
+
+PODFILE CHECKSUM: 3089193fc24d340c12ca3616a39eca7e6e3a1989
+
+COCOAPODS: 1.0.1

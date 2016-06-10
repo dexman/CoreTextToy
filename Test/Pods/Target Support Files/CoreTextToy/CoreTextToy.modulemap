@@ -1,0 +1,6 @@
+framework module CoreTextToy {
+  umbrella header "CoreTextToy-umbrella.h"
+
+  export *
+  module * { export * }
+}
